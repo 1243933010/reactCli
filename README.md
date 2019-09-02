@@ -42,7 +42,7 @@ react-router:{
 
 在app.js里面引入import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
-
+exact表示严格匹配，必须写
 }
 
 
