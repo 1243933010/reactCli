@@ -19,3 +19,48 @@ code {
   height: 100px;
 
 }
+.p{
+  color: red;
+  text-align: center;
+}
+ul{
+  margin: 0;
+  padding: 0;
+  /* display: flex;
+  justify-content: space-around;
+  flex-wrap:wrap; */
+  text-align: left;
+}
+ul a{
+  /* width: 33%; */
+}
+li{
+  list-style: none;
+}
+.li{
+   width: 33%;
+   display: inline-block;
+   text-align: center;
+
+}
+.li img{
+  width: 124px;
+  height: 124px;
+  background-size: cover;
+}
+.back{
+  position: absolute;
+  top:0;
+  left: 0;
+  color: white;
+}
+.xiangqing img{
+  width: 100%;
+}
+.foodchildren{
+  background: #f1eff1;
+}
+a{
+  color: white;
+  text-decoration: none;
+}

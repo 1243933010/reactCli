@@ -1,7 +1,7 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import url from 'url'
 
-class News extends React.Component{
+class Content extends React.Component{
     constructor(props){
         super(props)
         this.state = {
@@ -25,24 +25,25 @@ class News extends React.Component{
             ]
         }
     }
+   
+    componentDidMount=()=>{
+        //获取动态路由传递来的数据
+        console.log(this.props.match.params.aid)
+        // 可以获取到路由的get传值，通过url模块对获取的值进行处理 cnpm i url --save
+
+        console.log(this.props.location.search)
+
+        console.log(url.parse(this.props.location.search).query)
+    }
     render(){
     return(
         <div>
-            <p>这是News组件</p>
-            <ul>
-                {
-                    this.state.list.map((value,index)=>{
-                        return(
-                            <li key={index}>
-                                <Link to={`/content/${value.id}?id=${value.id}`}>{value.text}</Link>                          
-                            </li>
-                        )
-                    })
-                }
-            </ul>
+            <p>这是新闻详情组件</p>
+           
+        
         </div>
     )
     }
 }
 
-export default News;
+export default Content;
