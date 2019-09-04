@@ -1,8 +1,8 @@
 import React from 'react';
 import {Link,Route} from 'react-router-dom'
 
-import AddShop from './Shop/AddShop'
-import ShopList from './Shop/ShopList'
+// import AddShop from './Shop/AddShop'
+// import ShopList from './Shop/ShopList'
 
 import '../assets/css/App.css'
 
@@ -15,18 +15,24 @@ class Shop extends React.Component{
     }
 
     render(){
+        // console.log(this.props.match.path)
+        // console.log(this.props.Routes)
         return(
             <div>
                 <p className="a">这是Shop组件</p>
                 <div className="content">
                     <div className="left">
-                        <Link to="/shop/addshop" className="a">增加商户</Link>
-                        <Link to="/shop/shoplist" className="a">商户列表</Link>
+                        <Link to={`${this.props.match.path}/`} className="a">增加商户</Link>
+                        <Link to={`${this.props.match.path}/shoplist`} className="a">商户列表</Link>
                     </div>
                     <div className="right">
-                        <Route path='/shop/addshop' component={AddShop} />
-                        <Route path='/shop/shoplist' component={ShopList} />
-
+                        {
+                            this.props.Routes.map((value,key)=>{
+                                return(
+                                    <Route key={key} exact={value.exact} path={`${value.path}`} component={value.component} />
+                                )
+                            })
+                        }
                     </div>
                 </div>
             </div>

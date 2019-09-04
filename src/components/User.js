@@ -16,20 +16,29 @@ class User extends React.Component{
         }
     }
 
+    componentDidMount=()=>{
+        console.log(this.props)
+    }
     render(){
         return(
             <div>
                 <p>这是user组件</p>
                 <div className="content">
                     <div className="left">
-                        <Link to="/user/" className="a">main</Link>  |
-                        <Link to="/user/info" className="a">info</Link>
+                        <Link to={`${this.props.match.path}/`} className="a">main</Link>  |
+                        <Link to={`${this.props.match.path}/info`} className="a">info</Link>
 
                     </div>
                     <div className="right">
-                        <Route exact path="/user/"  component={Main} />
-                        <Route  path="/user/info" component={Info} />
-
+                        {/* <Route exact path={`${this.props.match.path}/`}  component={Main} />
+                        <Route  path={`${this.props.match.path}/info`} component={Info} /> */}
+                        {
+                            this.props.Routes.map((value,key)=>{
+                                return(
+                                    <Route key={key} exact={value.exact} path={value.path} component={value.component} />
+                                )
+                            })
+                        }
                     </div>
                 </div>
             </div>
